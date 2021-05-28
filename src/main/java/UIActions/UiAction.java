@@ -3,6 +3,7 @@ package UIActions;
 import java.util.concurrent.TimeUnit;
 
 import Modules.ErrorHandling;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -170,4 +171,9 @@ public class UiAction {
 		return null;	
 	}
 
+	@Attachment(value = "Screenshot of {0}", type = "image/png")
+	public byte[] saveScreenshot(String name, WebDriver driver) {
+		System.out.println("Nehawwwww");
+		return (byte[]) ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	}
 }

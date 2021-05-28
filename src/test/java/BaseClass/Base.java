@@ -1,6 +1,5 @@
 package BaseClass;
 
-import cucumber.api.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +12,7 @@ import org.testng.annotations.*;
 
 import UIActions.UiAction;
 
-public class Base extends AbstractTestNGCucumberTests {
+public class Base {
 
 		/**
 		 * the base cass the contains the path and takes the chrome as a default url

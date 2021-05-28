@@ -4,6 +4,7 @@ import UIActions.UiAction;
 import org.openqa.selenium.By;
 
 import static UIActions.UiAction.WAIT_UNTIL_VISIBILITY;
+import static UIActions.UiAction.WAIT_implicitlyWait;
 
 public class HomePage {
 
@@ -13,11 +14,12 @@ public class HomePage {
 
 
 
-    public Boolean findPageTitle (String name){
-        Boolean status = false;
+    public String findPageTitle (String name){
+        String  status = null;
         loginPageTitle = By.xpath(String.format("//h3[contains(text(),'%s')]",name));
-        elementaction.ElementWait(loginPageTitle,WAIT_UNTIL_VISIBILITY);
-         status = elementaction.FindElement(loginPageTitle).elementIsDisplayed();
+        elementaction.ElementWait(loginPageTitle,WAIT_implicitlyWait);
+         status = elementaction.FindElement(loginPageTitle).ActOntheElement(UiAction.GET_TEXT);
+         System.out.println(status);
            return status;
     }
 }
