@@ -99,16 +99,14 @@
         <!-- Excel reader -->
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.12</version>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.12</version>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.9</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
         <dependency>

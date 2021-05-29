@@ -12,14 +12,19 @@ import org.testng.annotations.*;
 
 import UIActions.UiAction;
 
-public class Base {
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
+public class Base {
 		/**
 		 * the base cass the contains the path and takes the chrome as a default url
 		 */
 	@BeforeClass
 	@Parameters({"Browser"}) // To run test from suite
 	public void beforeClass(@Optional("chrome") String Browser) {
+
+
+
 		switch (Browser) {
 
 			case "chrome": // run tests by chrome

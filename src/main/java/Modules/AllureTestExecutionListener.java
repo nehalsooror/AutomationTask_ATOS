@@ -2,18 +2,28 @@ package Modules;
 
 import UIActions.UiAction;
 
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.ByteArrayInputStream;
 
-public class AllureTestExecutionListener implements ITestListener {
+
+
+public class AllureTestExecutionListener implements ITestListener  {
 
             UiAction element = new UiAction();
+
+
 
         @Override
         public void onTestStart(ITestResult result) {
             // TODO Auto-generated method stub
+
 
 
         }
@@ -25,7 +35,19 @@ public class AllureTestExecutionListener implements ITestListener {
         @Override
         public void onTestFailure(ITestResult result) {
             // TODO Auto-generated method stub
-            element.saveScreenshot(result.getName(), UiAction.getDriver());
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) UiAction.getDriver()).getScreenshotAs(OutputType.BYTES)));
+
+            // IMPORTANT: Save the old System.out!
+//            PrintStream old = System.out;
+//            System.setOut(ps);
+////            System.out.flush();
+//            System.setOut(old);
+//            System.out.println("Here: " + baos.toString());
+//
+//            // Tell Java to use your special stream
+//                Allure.addAttachment("Failed page source", "text/plain", "Here: " +baos.toString(), "txt");
+
+
         }
         @Override
         public void onTestSkipped(ITestResult result) {
@@ -45,8 +67,7 @@ public class AllureTestExecutionListener implements ITestListener {
         @Override
         public void onFinish(ITestContext context) {
             // TODO Auto-generated method stub
-//            Allure.addAttachment("Console log: ", String.valueOf(UiAction.getDriver().manage().logs().get(LogType.BROWSER)));
-//                System.out.println("Nehawwwww"+UiAction.getDriver().manage().logs().get(LogType.BROWSER));
+////
 //            LogEntries logEntries = UiAction.getDriver().manage().logs().get(LogType.BROWSER);
 //
 //            StringBuilder logs = new StringBuilder();
